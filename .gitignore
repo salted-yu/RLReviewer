@@ -1,4 +1,23 @@
-data/
+# Operating-system and local environment files
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# Local datasets, models, checkpoints, and archives
+/data/
+/models/
+/checkpoints/
+/*.json
+/*.jsonl
 *.parquet
-*.json
 *.zip
+
+# Experiment outputs
+/code/LLaMA-Factory-main/saves/
+/code/LLaMA-Factory-main/logs/
+/code/LLaMA-Factory-main/generated_predictions.jsonl
+/code/LLaMA-Factory-main/cr_sft_test.jsonl
+/code/LLaMA-Factory-main/2-merge_lora.local.yaml
+/code/verl-main/logs/
+/code/verl-main/checkpoints/

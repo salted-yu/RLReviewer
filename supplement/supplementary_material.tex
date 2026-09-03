@@ -1,0 +1,38 @@
+\pdfoutput=1
+\documentclass[acmsmall,screen,nonacm]{acmart}
+
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{multirow}
+
+\newcommand{\TECH}{\textit{RLReviewer}}
+
+\renewcommand{\thesubsection}{S\arabic{subsection}}
+\renewcommand{\thetable}{S\arabic{table}}
+
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@dblfptop}{0pt}
+\makeatother
+\setlength{\headheight}{19pt}
+
+\settopmatter{printacmref=false, printccs=false, printfolios=true}
+\setcopyright{none}
+\authorsaddresses{}
+
+\hypersetup{
+  pdftitle={Supplementary Material for RLReviewer},
+  pdfsubject={Replication package supplementary material}
+}
+
+\begin{document}
+
+\title{Supplementary Material for RLReviewer: Structured Code Review Comment
+Generation with Verification-Guided Reinforcement Learning}
+
+\maketitle
+
+\input{supplement/robustness_to_ground_truth_noise}
+
+\end{document}

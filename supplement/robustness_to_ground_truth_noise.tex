@@ -1,0 +1,28 @@
+\subsection{Robustness to Ground-Truth Noise}
+\label{sec:supp:ground-truth-noise}
+
+\input{supplement/table_human_verified_overall}
+\input{supplement/table_human_verified_by_rule_dimension}
+\input{supplement/table_reward_function_ablation}
+
+
+The ground truth in our dataset is constructed through a rule-grounded review supervision process and is therefore not completely free of annotation errors.
+Human verification of the 384 sampled test cases shows that 91.41\% (351 cases) have correct ground truth, suggesting that the remaining annotation noise may introduce some uncertainty into the measured performance of different approaches.
+In particular, an incorrect reference may cause a correct prediction to be counted as incorrect or affect similarity-based metrics such as BLEU and SentenceBERT.
+To examine whether such annotation noise affects our main findings, we conduct additional robustness checks for both RQ1 and RQ2 using the 351 test cases whose ground truth was manually verified as correct.
+
+We first revisit RQ1 on this human-verified subset.
+As shown in Table~\ref{tab:supp:human-verified-overall}, \TECH{} consistently outperforms all baselines across Location accuracy, BLEU, and SentenceBERT\@.
+Specifically, \TECH{} achieves 49.00\% Location accuracy, compared with 42.17\% for LLaMA-Reviewer, corresponding to a relative improvement of 16.20\%.
+This advantage is comparable to, and even larger than, the 10.05\% relative improvement observed on the full test set (51.69\% vs.~46.97\%).
+Similar patterns are observed for BLEU and SentenceBERT, where \TECH{} achieves improvements of 20.71\% and 19.32\% over LLaMA-Reviewer and LAURA, respectively.
+We further examine whether this advantage holds across different rule dimensions.
+As shown in Table~\ref{tab:supp:human-verified-by-dimension}, \TECH{} maintains strong performance across rule dimensions on the human-verified subset.
+For Security Vulnerability, it achieves 81.82\% Location accuracy, compared with 63.64\% for the best baseline performance.
+For Code Defect, it obtains 35.65\% Rule accuracy, versus 29.57\% for LLaMA-Reviewer.
+\TECH{} also achieves the best BLEU score on Performance Issue (14.53 vs.~9.53) and SentenceBERT score on Maintainability and Readability (48.09 vs.~38.56).
+For Performance Issue, all approaches obtain 0\% Rule accuracy, possibly because such issues often depend on broader program context or runtime behavior, making the underlying rule difficult to identify.
+We next revisit RQ2 by examining whether the conclusion regarding reward design remains unchanged on the human-verified subset.
+As shown in Table~\ref{tab:supp:human-verified-reward-functions}, the default reward function provides the most balanced performance, achieving the best Location accuracy (49.00\%), Rule accuracy (29.63\%), and SentenceBERT (47.92). Although $\TECH{}_{BLEU}$ slightly improves BLEU from 12.30 to 12.54, it degrades performance on the other metrics, while $\TECH{}_{SentenceBERT}$ does not outperform the default setting.
+These results suggest that optimizing a single similarity metric offers limited benefits, whereas the default reward better balances localization, rule identification, and review-text quality.
+Overall, the results on the human-verified subset confirm the robustness of our main findings for both RQ1 and RQ2 despite the presence of annotation noise.

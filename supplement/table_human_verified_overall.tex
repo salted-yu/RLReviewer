@@ -1,0 +1,27 @@
+\begin{table*}[t]
+  \centering
+  \caption{Experimental results of \TECH{} and baselines on 351 human-checked test cases.Texts in bold represent the best performance of
+  the best approaches in each metric}
+  \label{tab:supp:human-verified-overall}
+  \resizebox{0.8\textwidth}{!}{
+    \begin{tabular}{ccccc}
+      \toprule
+      \textbf{Approach} & \textbf{Location} & \textbf{Rule} & \textbf{BLEU} & \textbf{SentenceBERT} \\
+      \midrule
+      Llama-3.1-8B-Instruct & 19.94\% & 3.70\% & 4.48 & 15.24 \\
+      Llama-3.1-70B-Instruct & 35.33\% & 13.11\% & 8.68 & 30.70 \\
+      Qwen2.5-Coder-7B-Instruct & 35.33\% & 10.26\% & 9.43 & 35.40 \\
+      Qwen2.5-Coder-14B-Instruct & 38.46\% & 13.11\% & 9.80 & 36.56 \\
+      Qwen2.5-Coder-32B-Instruct & 33.05\% & 11.97\% & 7.47 & 29.74 \\
+      DeepSeek-Coder-6.7B-Instruct & 29.06\% & 1.42\% & 8.96 & 35.29 \\
+      DeepSeek-Coder-33B-Instruct & 21.08\% & 2.56\% & 6.55 & 20.30 \\
+      CodeAgent & 42.17\% & 13.96\% & 9.47 & 37.59 \\
+      LAURA & 37.61\% & 21.08\% & 9.60 & 40.16 \\
+      CodeReviewer & 1.42\% & \textbf{30.48\%} & 10.04 & 25.40 \\
+      LLaMA-Reviewer & 42.17\% & 27.07\% & 10.19 & 38.01 \\
+      \midrule
+      \TECH{} & \textbf{49.00\%} & 29.63\% & \textbf{12.30} & \textbf{47.92} \\
+      \bottomrule
+    \end{tabular}
+  }
+\end{table*}

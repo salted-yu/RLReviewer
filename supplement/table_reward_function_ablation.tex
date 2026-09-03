@@ -1,0 +1,17 @@
+\begin{table*}[t]
+  \centering
+  \caption{Performance of \TECH{} with different reward functions on 351 human-verified test cases. Texts in bold indicate the best performance achieved by any approach for each metric
+  }
+  \label{tab:supp:human-verified-reward-functions}
+  \resizebox{0.8\textwidth}{!}{
+    \begin{tabular}{ccccc}
+      \toprule
+      \textbf{Reward Function} & \textbf{Location} & \textbf{Rule} & \textbf{BLEU} & \textbf{SentenceBERT} \\
+      \midrule
+      \TECH{} & \textbf{49.00\%} & \textbf{29.63\%} & 12.30 & \textbf{47.92} \\
+      $\TECH{}_{BLEU}$ & 46.72\% & 28.77\% & \textbf{12.54} & 45.18 \\
+      $\TECH{}_{SentenceBERT}$ & 46.15\% & 28.21\% & 11.47 & 46.55 \\
+      \bottomrule
+    \end{tabular}
+  }
+\end{table*}
