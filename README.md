@@ -2,16 +2,6 @@
 
 This repository contains the replication package for **“RLReviewer: Structured Code Review Comment Generation with Verification-Guided Reinforcement Learning.”** It provides the training, inference, and evaluation code used to reproduce the RLReviewer workflow, together with the accompanying supplementary material.
 
-RLReviewer generates a structured code review result with three fields:
-
-```json
-{
-  "line_number": 12,
-  "rule": "rule identifier",
-  "comment": "code review comment"
-}
-```
-
 The framework first learns code review generation through supervised fine-tuning (SFT), then improves the model through reinforcement learning (RL). The verification-guided reward evaluates output format, defect localization, rule identification, and review-comment quality.
 
 ## Workflow
@@ -39,10 +29,8 @@ RLReviewer/
 │   ├── evaluation/
 │   │   └── metric.py             # Four-metric evaluation CLI
 │   └── README.md                 # Detailed reproduction instructions
-├── output/
-│   └── pdf/
-│       └── supplementary_material.pdf
 ├── supplement/
+│   ├── supplementary_material.pdf
 │   ├── supplementary_material.tex
 │   ├── robustness_to_ground_truth_noise.tex
 │   ├── table_human_verified_overall.tex
@@ -88,16 +76,7 @@ The SFT and RL environments are intentionally documented separately because thei
 
 The supplementary material reports the robustness analysis on 351 human-verified test cases. It includes the overall comparison with baselines, results by rule dimension, and the reward-function ablation.
 
-**[View the compiled supplementary material (PDF)](output/pdf/supplementary_material.pdf)**
-
-The main LaTeX entry point is [`supplementary_material.tex`](supplement/supplementary_material.tex), and the editable content is split into semantically named source files under [`supplement/`](supplement/). To rebuild the PDF from the repository root, run:
-
-```bash
-mkdir -p output/pdf
-latexmk -pdf -interaction=nonstopmode -halt-on-error \
-  -outdir=output/pdf supplement/supplementary_material.tex
-latexmk -c -outdir=output/pdf supplement/supplementary_material.tex
-```
+**[View the compiled supplementary material (PDF)](supplement/supplementary_material.pdf)**
 
 ## Acknowledgements
 
